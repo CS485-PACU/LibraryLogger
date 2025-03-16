@@ -11,6 +11,7 @@
 #include <vector> 
 #include <string>
 #include <sstream>
+#include "../include/Library.h"
 
 //***************************************************************************
 // Function:    main
@@ -23,7 +24,15 @@
 //***************************************************************************
 int main()
 {
-    std::string cMessage = "hi!";
-    std::cout << ">> " << cMessage << " << " << std::endl;  
-    return EXIT_SUCCESS;
+	Library cLib;
+
+	cLib.transformNewToOld();
+	cLib.logStart("test.txt");
+	cLib.logStart("test2.txt");
+	cLib.transformNewToOld();
+	cLib.logStop("test.txt");
+	cLib.transformNewToOld();
+	cLib.logStop("test2.txt");
+	
+  return EXIT_SUCCESS;
 }

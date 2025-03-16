@@ -3,7 +3,7 @@
 
 int TLogger::ID = 0;
 
-TLogger::TLogger() {
+TLogger::TLogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pLogger) :ILogger(rcName, pLogger) {
 	mID = ID ++;
 }
 

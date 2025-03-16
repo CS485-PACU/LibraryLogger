@@ -1,6 +1,9 @@
-#include "../include/LibraryLoggerFactory.h"
 #include "../include/TLogger.h"
 #include "../include/JLogger.h"
+#include "../include/ILogger.h"
+#include "../include/ILibraryReceiver.h"
+#include "../include/LibraryLoggerFactory.h"
+
 
 std::shared_ptr<ILogger> LibraryLoggerFactory::CreateLibraryLogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pcLogger) {
 	std::shared_ptr<ILogger> pcNewLogger;

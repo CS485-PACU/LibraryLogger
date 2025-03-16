@@ -1,6 +1,10 @@
-#include "ILogger.h"
+
+#pragma once
+
 #include <string>
 #include <memory>
+class ILogger;
+class ILibraryReceiver;
 
 class LibraryLoggerFactory {
 	public:
