@@ -27,11 +27,14 @@ int main()
 	Library cLib;
 
 	cLib.transformNewToOld();
+	std::cout << "-----------\n";
 	cLib.logStart("test.txt");
 	cLib.logStart("test2.txt");
 	cLib.transformNewToOld();
+	std::cout << "-----------\n";
 	cLib.logStop("test.txt");
 	cLib.transformNewToOld();
+	std::cout << "-----------\n";
 	cLib.logStop("test2.txt");
 	
   return EXIT_SUCCESS;
