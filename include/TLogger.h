@@ -5,7 +5,7 @@
 class TLogger : public ILogger{
 
 	public:
-		TLogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pLogger);
+		TLogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pcLogger);
 
 		virtual ~TLogger() {};
 

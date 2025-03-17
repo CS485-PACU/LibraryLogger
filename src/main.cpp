@@ -31,8 +31,12 @@ int main()
 	cLib.logStart("test.txt");
 	cLib.logStart("test2.txt");
 	cLib.transformNewToOld();
+	cLib.logStart("test.json");
 	std::cout << "-----------\n";
 	cLib.logStop("test.txt");
+	cLib.transformNewToOld();
+	cLib.logStop("test.json");
+	std::cout << "-----------\n";
 	cLib.transformNewToOld();
 	std::cout << "-----------\n";
 	cLib.logStop("test2.txt");

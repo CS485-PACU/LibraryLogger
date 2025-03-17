@@ -14,5 +14,5 @@ class Library : public ILibraryReceiver{
 		virtual std::shared_ptr<ILibraryReceiver> logStop(const std::string &rcName);
 
 	private:
-		std::shared_ptr<ILibraryReceiver> mpLogger = nullptr;
+		std::shared_ptr<ILibraryReceiver> mpcLogger = nullptr;
 };

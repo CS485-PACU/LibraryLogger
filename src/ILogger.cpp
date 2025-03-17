@@ -1,14 +1,14 @@
 #include "../include/ILogger.h"
 #include "../include/LibraryLoggerFactory.h"
 
-ILogger::ILogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pLogger)  
+ILogger::ILogger(const std::string &rcName, std::shared_ptr<ILibraryReceiver> pcLogger)  
 {
 	mcName = rcName;
-	mpLogger = pLogger;
+	mpcLogger = pcLogger;
 }
 
 void ILogger::logStart(const std::string &rcName) {
-	mpLogger = LibraryLoggerFactory::CreateLibraryLogger(rcName, mpLogger);
+	mpcLogger = LibraryLoggerFactory::CreateLibraryLogger(rcName, mpcLogger);
 
 }
 
@@ -19,17 +19,19 @@ std::shared_ptr<ILibraryReceiver> ILogger::logStop(const std::string &rcName)
 		// no one will point to me, 
 		// the shared pointers will
 		// deallocate me!
-		return mpLogger;
+		return mpcLogger;
 	}
 		
-	mpLogger = mpLogger->logStop(rcName);
+	mpcLogger = mpcLogger->logStop(rcName);
+	// https://en.cppreference.com/w/cpp/memory/enable_shared_from_this
+	// DO NOT std::make_shared<ILibraryReceiver>(this);
 	return shared_from_this();
 }
 
 void ILogger::transformNewToOld() {
-	if ( nullptr != mpLogger) {
+	if ( nullptr != mpcLogger) {
 		// if we contain an ILogger, 
 		// call it.
-		mpLogger->transformNewToOld();
+		mpcLogger->transformNewToOld();
 	}
 }

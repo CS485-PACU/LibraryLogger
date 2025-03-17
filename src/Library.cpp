@@ -6,20 +6,20 @@
 void Library::transformNewToOld() {
 
 		std::cout << "LIBRARY TRANSFORM\n";
-		if ( nullptr != mpLogger) {
+		if ( nullptr != mpcLogger) {
 			// calls down to a subclass
-			mpLogger->transformNewToOld();
+			mpcLogger->transformNewToOld();
 		}
 }
 
 
 void Library::logStart(const std::string &rcStreamName) {
-	mpLogger = LibraryLoggerFactory::CreateLibraryLogger(rcStreamName, mpLogger);
+	mpcLogger = LibraryLoggerFactory::CreateLibraryLogger(rcStreamName, mpcLogger);
 }
 
 std::shared_ptr<ILibraryReceiver> Library::logStop(const std::string &rcStreamName) {
-	if ( nullptr != mpLogger) {
-		mpLogger = mpLogger->logStop(rcStreamName);
+	if ( nullptr != mpcLogger) {
+		mpcLogger = mpcLogger->logStop(rcStreamName);
 	}
-	return mpLogger;
+	return mpcLogger;
 }

@@ -10,7 +10,8 @@ std::shared_ptr<ILogger> LibraryLoggerFactory::CreateLibraryLogger(const std::st
 
 	if (rcName.ends_with(".txt")) {
 		pcNewLogger = std::make_shared<TLogger>(rcName, pcLogger);
+	}	else if (rcName.ends_with(".json")) {
+		pcNewLogger = std::make_shared<JLogger>(rcName, pcLogger);
 	}
-
 	return pcNewLogger;
 }
