@@ -26,6 +26,20 @@ int main()
 {
 	Library cLib;
 
+	/* 
+		the following code simulates the COMMAND FILE:
+		
+		T
+		L TXT F test.txt TEST
+		L TXT F test2.txt TEST2
+		T
+		L TXT F test.json TEST2
+		L STOP test.txt
+		T
+		L STOP test.json
+		T
+		L STOP test2.json
+		*/
 	cLib.transformNewToOld();
 	std::cout << "-----------\n";
 	cLib.logStart("test.txt");
